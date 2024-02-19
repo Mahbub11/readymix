@@ -23,6 +23,10 @@ export const companies=[
         value: '6',
         label: 'Company 6',
       },
+    {
+        value: '7',
+        label: 'Muhid construction',
+      },
 
 ]
 
@@ -50,6 +54,10 @@ export const projects=[
       {
         value: '6',
         label: 'Project 6',
+      },
+     {
+        value: '7',
+        label: 'Muhid Project One',
       },
 
 ]
