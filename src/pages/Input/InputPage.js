@@ -17,7 +17,7 @@ function InputPage(props) {
     return (
         <div>
             
-            <div className='px-2 py-2  md:w-[70%] sm:w-full m-auto'>
+            <div className='px-2 py-2  sm:w-full m-auto'>
             <div className='py-5 bg-slate-100 drop-shadow-md'>
             <div onClick={() => navigate(-1)} className='absolute md:px-2 py-2 cursor-pointer  md:mt-0'>
                 <IconExit_left height='2rem' width='2rem'></IconExit_left>
@@ -29,7 +29,7 @@ function InputPage(props) {
                     <div>
                         <div>
                             <p>* Select a Date</p>
-                            <DatePicker className='w-[20rem] h-[3rem]' onChange={onChange} />
+                            <DatePicker className='w-full h-[3rem]' onChange={onChange} />
                         </div>
 
                         <div className='flex-col gap-3  mt-5'>

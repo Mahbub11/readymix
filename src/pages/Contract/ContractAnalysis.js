@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import IconExit_left from "../../Assets/SVG/IconExit_Left";
 import { listing } from "../../utils/dummyData";
-import { Select, Input, Pagination, Modal } from "antd";
+import { Select, Input, Pagination } from "antd";
 import ListData from "../../Components/Data/ListData";
-import InvoiceModal from "../../Components/Invoice/InvoiceModal";
+import InvoiceListTable from "../../Components/Data/InvoiceListTable";
+import ContractAnalysisTable from "../../Components/Data/ContractAnalysisTable";
 const { Search } = Input;
 
-function ShowData(props) {
+function ContractAnalysis(props) {
   const navigate = useNavigate();
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 720);
@@ -20,13 +21,11 @@ function ShowData(props) {
   const [markedFilter, setMarkedFilter] = useState(false);
   const [page, setPage] = useState(5);
   const [current, setCurrent] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const config = isMobile
     ? { maxWidth: "98vw", padding: 0 }
     : { maxWidth: "80vw" };
   const handleQ = (id) => {
-    setIsModalOpen(true)
     setIndex(id);
     isShow(true);
   };
@@ -55,9 +54,6 @@ function ShowData(props) {
       setFilterData(newData);
     }
   };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <div>
@@ -69,7 +65,13 @@ function ShowData(props) {
           >
             <IconExit_left height="2rem" width="2rem"></IconExit_left>
           </div>
-          <h1 className="text-center text-[30px]">List of Orders</h1>
+          <h1 className="text-center text-[30px]">Contract Analysis</h1>
+          <div className="h-[5rem] sm:w-[60%] m-auto md:w-auto px-2 py-2 bg-header md:absolute right-0 text-[15px] font-montserrat">
+            <h1>Total Paid:<span className="font-[800]"> 40000000 tk</span></h1>
+            <h1>Total due: <span className="font-[800]">300000 tk</span></h1>
+
+
+          </div>
 
           <div>
             <div>
@@ -85,12 +87,12 @@ function ShowData(props) {
                 id="journal-scroll"
                 className="overflow-x-scroll w-full mt-5 "
               >
-                <ListData
+                <ContractAnalysisTable
                   list={filterData.length === 0 ? listing : filterData}
                   current={current}
                   page={page}
                   handleQ={handleQ}
-                ></ListData>
+                ></ContractAnalysisTable>
               </div>
               <div className="w-full flex justify-center gap-3">
                 <Pagination
@@ -121,12 +123,9 @@ function ShowData(props) {
             </div>
           </div>
         </div>
-        <Modal onCancel={handleCancel} width='50rem' height='40rem'  style={{width:'50rem'}} open={isModalOpen}>
-          <InvoiceModal></InvoiceModal>
-        </Modal>
       </div>
     </div>
   );
 }
 
-export default ShowData;
+export default ContractAnalysis;

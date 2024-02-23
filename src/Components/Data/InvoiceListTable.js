@@ -3,15 +3,15 @@ import { Avatar, List, Radio, Space, Tag, Input, Button } from "antd";
 import { Pagination, PaginationProps, Row, Select, Table } from "antd";
 import { StarOutlined, StarFilled } from "@ant-design/icons";
 
-export default function ListData({ list, handleQ,current,page }) {
+export default function InvoiceListTable({ list, handleQ,current,page }) {
   
  
 
   const columns = [
     {
-      title: "Date",
-      dataIndex: "date",
-      key: "date",
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
       defaultSortOrder: 'descend',
       sorter: (a, b) => a.index - b.index,
 
@@ -27,7 +27,7 @@ export default function ListData({ list, handleQ,current,page }) {
               className="sm:text-[15px]  font-montserrat font-[400] flex gap-2"
             >
               <p>{record.index}.</p>
-              <p>{record.date}</p>
+             
             </button>
           }
         </div>
@@ -54,83 +54,23 @@ export default function ListData({ list, handleQ,current,page }) {
       ),
     },
     {
-      title: "Mpa",
+      title: "Invoice Created",
       dataIndex: "mpa",
       key: "mpa",
       render: (level, record) => (
         <div className="font-montserrat font-[400] ">
-          <p>{record.mpa}</p>
-        </div>
-      ),
-    },
-    {
-      title: "Cubic Meter",
-      dataIndex: "cubicmeter",
-      key: "cubicmeter",
-      render: (level, record) => (
-        <div className=" font-montserrat font-[400] ">
-          <p>{record.cubicMeter}</p>
-        </div>
-      ),
-    },
-    {
-      title: "Stone(mt)",
-      dataIndex: "stone",
-      key: "stone",
-      render: (level, record) => (
-        <div className=" font-montserrat font-[400] ">
-          <p>{record.stone}</p>
-        </div>
-      ),
-    },
-    {
-      title: "Sand(cft)",
-      dataIndex: "sand",
-      key: "sand",
-      render: (level, record) => (
-        <div className="font-montserrat font-[400] ">
-          <p>{record.sand}</p>
-        </div>
-      ),
-    },
-    {
-      title: "Cement(mt)",
-      dataIndex: "cement",
-      key: "cement",
-      render: (level, record) => (
-        <div className=" font-montserrat font-[400] ">
-          <p>{record.cement}</p>
-        </div>
-      ),
-    },
-    {
-      title: "Admixer(kg)",
-      dataIndex: "admixer",
-      key: "admixer",
-      render: (level, record) => (
-        <div className=" font-montserrat font-[400] ">
-          <p>{record.admixer}</p>
+          <p>{record.date}</p>
         </div>
       ),
     },
    
-    {
-      title: "CFT Quality",
-      dataIndex: "cft",
-      key: "cft",
-      render: (level, record) => (
-        <div className=" font-montserrat font-[400] ">
-          <p>{record.cft}</p>
-        </div>
-      ),
-    },
     {
       title: "Action",
       dataIndex: "btn",
       key: "btn",
       render: (level, record) => (
         <div className="text-[17px] font-montserrat font-[400] ">
-         <Button  onClick={(e) => handleQ(record.index)} >Invoice</Button>
+         <Button >Delete</Button>
         </div>
       ),
     },

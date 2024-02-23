@@ -75,7 +75,9 @@ export const listing=[
         cement:55,
         admixer:44,
         rcvd:44,
-        cft:22
+        cft:22,
+        amount:70000,
+        status:true
 
     },
     {
@@ -90,7 +92,9 @@ export const listing=[
         cement:55,
         admixer:44,
         rcvd:44,
-        cft:22
+        cft:22,
+        amount:70000,
+        status:false
 
     },
     {
@@ -105,7 +109,9 @@ export const listing=[
         cement:55,
         admixer:44,
         rcvd:44,
-        cft:22
+        cft:1500,
+        amount:70000,
+        status:true
 
     },
     {
@@ -120,7 +126,9 @@ export const listing=[
         cement:55,
         admixer:44,
         rcvd:44,
-        cft:22
+        cft:500,
+        amount:70000,
+        status:false
 
     },
     {
@@ -135,7 +143,9 @@ export const listing=[
         cement:55,
         admixer:44,
         rcvd:44,
-        cft:22
+        cft:1200,
+        amount:70000,
+        status:true
 
     },
     {
@@ -150,7 +160,9 @@ export const listing=[
         cement:55,
         admixer:44,
         rcvd:44,
-        cft:22
+        cft:800,
+        amount:70000,
+        status:true
 
     },
 ]
