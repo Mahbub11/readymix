@@ -12,13 +12,13 @@ const options = {
     y: {
       title: {
         display: true,
-        text: 'Quantity'
+        text: 'CFT'
       }
     },
     x: {
       title: {
         display: true,
-        text: 'Date'
+        text: 'MPA'
       }
     }
   },
@@ -30,11 +30,11 @@ const options = {
 }
 const data = {
  
-  labels: ['2-2-24','2-3-24','2-4-24','2-5-24','2-6-24','2-7-24','2-8-24'],
+  labels: [30,28,25,28,28,32,30,25],
   datasets: [
     {
       label: "Casting Report",
-      data: [165, 159, 180, 181, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40],
+      data: [1059.45,988.82,882.875,988.82,988.82,1130,1059.45,882.875],
       backgroundColor: [
         "rgba(255, 99, 132, 0.2)",
         "rgba(255, 159, 64, 0.2)",
@@ -58,7 +58,7 @@ const data = {
   ],
 };
 
-export default function OrderGraph() {
+export default function CftMpaGraph() {
   return (
     <div>
       <div className=" px-2 rounded-sm py-3 sm:w-full  md:w-[45rem]">
@@ -66,7 +66,8 @@ export default function OrderGraph() {
           <RangePicker  />
         </div>
 
-        <div className="rounded-md px-4 py-4 flex justify-center bg-header/30 mt-3">
+        <div className="rounded-md px-4 py-4 flex-col justify-center bg-header/30 mt-3">
+          <h1 className="self-end w-full flex justify-end underline"><span className="font-[700]">35.315 {" "}</span> per CFT</h1>
           <Bar options={options} data={data}></Bar>
         </div>
       </div>

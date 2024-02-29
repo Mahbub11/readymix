@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Radio } from "antd";
 import { AnimatedCounter } from "react-animated-counter";
 import OrderGraph from "../../Components/Graph/OrderGraph";
+import CftMpaGraph from "../../Components/Graph/CftMpaGraph";
 
 function Homepage(props) {
   return (
@@ -44,11 +46,19 @@ function Homepage(props) {
           </div>
 
           <div className="mt-10 w-full m-auto flex flex-col justify-center ">
-            <h1 className="text-center font-montserrat text-[25px] font-[800] ">
-              Order Report
-            </h1>
+            <div className="w-full m-auto flex justify-center">
+              <Radio.Group  className="" defaultValue="a" buttonStyle="solid">
+                <div className=" flex flex-wrap justify-center w-full m-auto gap-1">
+                <Radio.Button value="a">Casting Report</Radio.Button>
+                <Radio.Button value="b">Casting Growth</Radio.Button>
+                <Radio.Button value="c">Purchase</Radio.Button>
+                <Radio.Button value="d">Sell</Radio.Button>
+                </div>
+              </Radio.Group>
+            </div>
             <div className="px-2 py-3 self-center">
-              <OrderGraph ></OrderGraph>
+              {/* <OrderGraph></OrderGraph> */}
+              <CftMpaGraph></CftMpaGraph>
             </div>
           </div>
 

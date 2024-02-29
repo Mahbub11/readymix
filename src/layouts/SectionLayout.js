@@ -17,16 +17,14 @@ export default function SectionLayout() {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
-    <Layout className="bg-#e0ebf8 h-auto m-auto z-50 sm:w-full md:mt-10">
-      
+    <Layout className="bg-#e0ebf8 h-auto m-auto z-50 sm:w-full ">
       <Sider
         className={`${collapsed ? "hidden" : "block"}`}
         trigger={null}
         collapsible
         translate="3s"
-      
         collapsed={false}
-        style={{ background: "#e0ebf8",width:'40%' }}
+        style={{ background: "#e0ebf8", width: "40%" }}
       >
         <div className=" h-auto" />
         <Menu
@@ -63,10 +61,7 @@ export default function SectionLayout() {
               children: [
                 {
                   label: (
-                    <a
-                      href="/listing"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="/listing" rel="noopener noreferrer">
                       Order List
                     </a>
                   ),
@@ -76,10 +71,7 @@ export default function SectionLayout() {
                 },
                 {
                   label: (
-                    <a
-                      href="/invoice-list"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="/invoice-list" rel="noopener noreferrer">
                       Invoice List
                     </a>
                   ),
@@ -89,17 +81,13 @@ export default function SectionLayout() {
                 },
                 {
                   label: (
-                    <a
-                      href="contract-analysis"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="contract-analysis" rel="noopener noreferrer">
                       Contact Analysis
                     </a>
                   ),
                   path: "contract-analysis",
                   key: "role1",
                 },
-                
               ],
             },
 
@@ -112,10 +100,7 @@ export default function SectionLayout() {
               children: [
                 {
                   label: (
-                    <a
-                      href="/company"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="/company" rel="noopener noreferrer">
                       Company
                     </a>
                   ),
@@ -125,10 +110,7 @@ export default function SectionLayout() {
                 },
                 {
                   label: (
-                    <a
-                      href="/project"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="/project" rel="noopener noreferrer">
                       Project
                     </a>
                   ),

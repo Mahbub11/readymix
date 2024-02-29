@@ -121,7 +121,7 @@ function ShowData(props) {
             </div>
           </div>
         </div>
-        <Modal onCancel={handleCancel} width='50rem' height='40rem'  style={{width:'50rem'}} open={isModalOpen}>
+        <Modal footer={false} onCancel={handleCancel} width='70rem' height='40rem'  style={{width:'50rem'}} open={isModalOpen}>
           <InvoiceModal></InvoiceModal>
         </Modal>
       </div>
