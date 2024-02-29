@@ -78,7 +78,7 @@ function ShowData(props) {
           >
             <IconExit_left height="2rem" width="2rem"></IconExit_left>
           </div>
-          <h1 className="text-center text-[30px]">List of Orders</h1>
+          <h1 className="text-center text-[30px]">Casting List</h1>
 
           <div>
             <div>

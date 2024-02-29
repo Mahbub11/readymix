@@ -105,14 +105,20 @@ export default function ReviewInvoice({ items, calData }) {
   };
 
   return (
-    <div>
-        <PDFDownloadLink document={<Invoice invoice={invoiceData}></Invoice>} fileName="form">
-            Download
+    <div className="mt-10">
+       
+       <PDFViewer width="sm:w-[300] md:w-[600]" height="600" className="app">
+        <Invoice invoice={invoiceData}></Invoice>
+      </PDFViewer>
 
+      <div className="px-2 py-2 w-full flex justify-center text-[20px] font-[700] bg-home rounded-md">
+        <PDFDownloadLink
+          document={<Invoice invoice={invoiceData}></Invoice>}
+          fileName="form"
+        >
+          Download
         </PDFDownloadLink>
-         <PDFViewer width="900" height="600" className="app" >
-                <Invoice invoice={invoiceData}></Invoice>
-            </PDFViewer>
+      </div>
       {/* <div className="md:text-[20px] font-poppins sm:text-[12px]">
         <div id="print" className=" px-5 py-2 mt-10 ">
           <h1 className="text-center font-poppinsBold text-[30px]">Invoice</h1>

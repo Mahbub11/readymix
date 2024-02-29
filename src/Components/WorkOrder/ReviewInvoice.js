@@ -1,8 +1,8 @@
 import { Button, Input, Table, Tag } from "antd";
 import React from "react";
-import { toPng } from 'html-to-image';
-import { jsPDF } from 'jspdf';
-import { PDFViewer,PDFDownloadLink } from "@react-pdf/renderer";
+import { toPng } from "html-to-image";
+import { jsPDF } from "jspdf";
+import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import Invoice from "../WorkOrderPdf/Invoice";
 // import invoice from "../../data/invoice";
 var converter = require("number-to-words");
@@ -12,39 +12,39 @@ export default function ReviewInvoice({ items, calData }) {
 
   console.log(items);
 
-  const invoiceData={
-    "id": "5df3180a09ea16dc4b95f910",
-    "invoice_no": "2024-28",
-    "customer": "Bangladesh Shenabahini",
-    "email": "mail@xyx.com",
-    "phone": "+8835465768",
-    "address": "Cumilla University Extension Part, Cumilla",
-    "trans_date": "2024-01-12",
-    "due_date": "2024-3-12",
-    "sub_total":calData.subtotal,
-    'pump_charge':true,
-    'vatRate':calData.vat,
-     'vat_amount':calData.vatRate,
-     'prev_due':calData.prevDue,
-     'rcv_amount':calData.rcvAmount,
-     'net_payable':calData.payableAmount,
-     "items":items
-
-  }
-
- 
-
-
+  const invoiceData = {
+    id: "5df3180a09ea16dc4b95f910",
+    invoice_no: "2024-28",
+    customer: "Bangladesh Shenabahini",
+    email: "mail@xyx.com",
+    phone: "+8835465768",
+    address: "Cumilla University Extension Part, Cumilla",
+    trans_date: "2024-01-12",
+    due_date: "2024-3-12",
+    sub_total: calData.subtotal,
+    pump_charge: true,
+    vatRate: calData.vat,
+    vat_amount: calData.vatRate,
+    prev_due: calData.prevDue,
+    rcv_amount: calData.rcvAmount,
+    net_payable: calData.payableAmount,
+    items: items,
+  };
 
   return (
-    <div>
-        <PDFDownloadLink document={<Invoice invoice={invoiceData}></Invoice>} fileName="form">
-            Download
+    <div className="mt-10">
+      <PDFViewer width="sm:w-[300] md:w-[600]" height="600" className="app">
+        <Invoice invoice={invoiceData}></Invoice>
+      </PDFViewer>
 
+      <div className="px-2 py-2 w-full flex justify-center text-[20px] font-[700] bg-home rounded-md">
+        <PDFDownloadLink
+          document={<Invoice invoice={invoiceData}></Invoice>}
+          fileName="form"
+        >
+          Download
         </PDFDownloadLink>
-         <PDFViewer width="900" height="600" className="app" >
-                <Invoice invoice={invoiceData}></Invoice>
-            </PDFViewer>
+      </div>
       {/* <div className="md:text-[20px] font-poppins sm:text-[12px]">
         <div id="print" className=" px-5 py-2 mt-10 ">
           <h1 className="text-center font-poppinsBold text-[30px]">Invoice</h1>
