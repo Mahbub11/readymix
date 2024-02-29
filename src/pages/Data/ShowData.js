@@ -5,6 +5,7 @@ import { listing } from "../../utils/dummyData";
 import { Select, Input, Pagination, Modal } from "antd";
 import ListData from "../../Components/Data/ListData";
 import InvoiceModal from "../../Components/Invoice/InvoiceModal";
+import WorkOrderModal from "../../Components/WorkOrder/InvoiceModal";
 const { Search } = Input;
 
 function ShowData(props) {
@@ -21,6 +22,7 @@ function ShowData(props) {
   const [page, setPage] = useState(5);
   const [current, setCurrent] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalWorkOrder, setModalWorkOrder] = useState(false);
 
   const config = isMobile
     ? { maxWidth: "98vw", padding: 0 }
@@ -29,6 +31,10 @@ function ShowData(props) {
     setIsModalOpen(true)
     setIndex(id);
     isShow(true);
+  };
+  const handleWorkOrder = (id) => {
+    setModalWorkOrder(true)
+    setIndex(id);
   };
   const handleChange = (value) => {
     setPage(value);
@@ -57,6 +63,9 @@ function ShowData(props) {
   };
   const handleCancel = () => {
     setIsModalOpen(false);
+  };
+  const handleCancelWorkorder = () => {
+    setModalWorkOrder(false);
   };
 
   return (
@@ -90,6 +99,7 @@ function ShowData(props) {
                   current={current}
                   page={page}
                   handleQ={handleQ}
+                  handleWorkOrder={handleWorkOrder}
                 ></ListData>
               </div>
               <div className="w-full flex justify-center gap-3">
@@ -123,6 +133,9 @@ function ShowData(props) {
         </div>
         <Modal footer={false} onCancel={handleCancel} width='70rem' height='40rem'  style={{width:'50rem'}} open={isModalOpen}>
           <InvoiceModal></InvoiceModal>
+        </Modal>
+        <Modal footer={false} onCancel={handleCancelWorkorder} width='70rem' height='40rem'  style={{width:'50rem'}} open={isModalWorkOrder}>
+         <WorkOrderModal></WorkOrderModal>
         </Modal>
       </div>
     </div>

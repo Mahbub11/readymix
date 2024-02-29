@@ -1,44 +1,43 @@
 const invoice = {
     "id": "5df3180a09ea16dc4b95f910",
-    "invoice_no": "201906-28",
-    "balance": "$2,283.74",
-    "company": "MANTRIX",
-    "email": "susanafuentes@mantrix.com",
-    "phone": "+1 (872) 588-3809",
-    "address": "922 Campus Road, Drytown, Wisconsin, 1986",
-    "trans_date": "2019-09-12",
-    "due_date": "2019-10-12",
+    "invoice_no": "2024-28",
+    "customer": "Bangladesh Shenabahini",
+    "email": "mail@xyx.com",
+    "phone": "+8835465768",
+    "address": "Cumilla University Extension Part, Cumilla",
+    "trans_date": "2024-01-12",
+    "due_date": "2024-3-12",
+    "sub_total":356040,
+    'pump_charge':15000,
+    'vatRate':2,
+     'vat_amount':2222,
+     'prev_due':45555,
+     'rcv_amount':765657,
+     'net_payable':435454,
+
     "items": [
       {
         "sno": 1,
-        "desc": "ad sunt culpa occaecat qui",
-        "qty": 5,
-        "rate": 405.89
+        "itemDes": "c-35",
+       "unitm3":28,
+       "m3cft":35.315,
+       "unitcft":988.82,
+       "unitrate":360,
+       'total':33333333,
+       "remarks":"lorem ipsum"
       },
       {
-        "sno": 2,
-        "desc": "cillum quis sunt qui aute",
-        "qty": 5,
-        "rate": 373.11
+        "sno": 1,
+        "desc": "c-35",
+       "unitm3":22,
+       "m3cft":33,
+       "unitcft":55,
+       "unitrate":33,
+       'total':3333333333,
+       "remarks":"lorem ipsum"
       },
-      {
-        "sno": 3,
-        "desc": "ea commodo labore culpa irure",
-        "qty": 5,
-        "rate": 458.61
-      },
-      {
-        "sno": 4,
-        "desc": "nisi consequat et adipisicing dolor",
-        "qty": 10,
-        "rate": 725.24
-      },
-      {
-        "sno": 5,
-        "desc": "proident cillum anim elit esse",
-        "qty": 4,
-        "rate": 141.02
-      }
+      
+     
     ]
   }
   

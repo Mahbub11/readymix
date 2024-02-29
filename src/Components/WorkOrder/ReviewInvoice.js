@@ -3,8 +3,8 @@ import React from "react";
 import { toPng } from 'html-to-image';
 import { jsPDF } from 'jspdf';
 import { PDFViewer,PDFDownloadLink } from "@react-pdf/renderer";
+import Invoice from "../WorkOrderPdf/Invoice";
 // import invoice from "../../data/invoice";
-import Invoice from "../Inv/Invoice";
 var converter = require("number-to-words");
 
 export default function ReviewInvoice({ items, calData }) {
@@ -22,7 +22,7 @@ export default function ReviewInvoice({ items, calData }) {
     "trans_date": "2024-01-12",
     "due_date": "2024-3-12",
     "sub_total":calData.subtotal,
-    'pump_charge':calData.pumpCharge,
+    'pump_charge':true,
     'vatRate':calData.vat,
      'vat_amount':calData.vatRate,
      'prev_due':calData.prevDue,
@@ -34,75 +34,7 @@ export default function ReviewInvoice({ items, calData }) {
 
  
 
-  const SaveAsPDFHandler = () => {
 
-
-    // const d= new Blob([<Invoice invoice={invoiceData}></Invoice>])
-    // const pdfBlob = new Blob([<Invoice invoice={invoice} />], { type: 'application/pdf' }, `My PDF_${122}.pdf`);  
-
-    // console.log(pdfBlob)
-
-    return
-    const dom = document.getElementById('print');
-    toPng(dom)
-      .then((dataUrl) => {
-        const img = new Image();
-        img.crossOrigin = 'annoymous';
-        img.src = dataUrl;
-        img.onload = () => {
-          // Initialize the PDF.
-          const pdf = new jsPDF({
-            orientation: 'portrait',
-            unit: 'in',
-            format: [5.5, 8.5],
-          });
-
-          // Define reused data
-          const imgProps = pdf.getImageProperties(img);
-          const imageType = imgProps.fileType;
-          const pdfWidth = pdf.internal.pageSize.getWidth();
-
-          // Calculate the number of pages.
-          const pxFullHeight = imgProps.height;
-          const pxPageHeight = Math.floor((imgProps.width * 8.5) / 5.5);
-          const nPages = Math.ceil(pxFullHeight / pxPageHeight);
-
-          // Define pageHeight separately so it can be trimmed on the final page.
-          let pageHeight = pdf.internal.pageSize.getHeight();
-
-          // Create a one-page canvas to split up the full image.
-          const pageCanvas = document.createElement('canvas');
-          const pageCtx = pageCanvas.getContext('2d');
-          pageCanvas.width = imgProps.width;
-          pageCanvas.height = pxPageHeight;
-
-          for (let page = 0; page < nPages; page++) {
-            // Trim the final page to reduce file size.
-            if (page === nPages - 1 && pxFullHeight % pxPageHeight !== 0) {
-              pageCanvas.height = pxFullHeight % pxPageHeight;
-              pageHeight = (pageCanvas.height * pdfWidth) / pageCanvas.width;
-            }
-            // Display the page.
-            const w = 1200;
-            const h = 1500;
-            pageCtx.fillStyle = 'white';
-            pageCtx.fillRect(0, 0, w, h);
-            pageCtx.drawImage(img, 0, page * pxPageHeight, w, h, 0, 0, w, h);
-
-            // Add the page to the PDF.
-            if (page) pdf.addPage();
-
-            const imgData = pageCanvas.toDataURL(`image/${imageType}`, 1);
-            pdf.addImage(imgData, imageType, 0, 0, pdfWidth, pageHeight);
-          }
-          // Output / Save
-          pdf.save(`invoice-${11}.pdf`);
-        };
-      })
-      .catch((error) => {
-        console.error('oops, something went wrong!', error);
-      });
-  };
 
   return (
     <div>

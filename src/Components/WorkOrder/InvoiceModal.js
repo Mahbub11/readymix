@@ -23,7 +23,7 @@ const data = [
     description: "Lorem ipsum dolor sit amet",
   },
 ];
-export default function InvoiceModal() {
+export default function WorkOrderModal() {
   const [customerName, setCustomerName] = useState("Bangladesh Shenabahini");
   const [address, setAddress] = useState(
     "Cumilla University Extension Part, Cumilla"
@@ -40,14 +40,14 @@ export default function InvoiceModal() {
   const [unitcft, setUnitCft] = useState();
   const [discount, setDiscount] = useState("");
   const [vat, setVat] = useState(2);
-  const [pumpCharge, setPumpCharge] = useState(15000);
+  const [pumpCharge, setPumpCharge] = useState(true);
   const [rcvAmount, setRCVAmount] = useState(0);
   const [prevDue, setPrevDue] = useState(0);
   const [reviewInvoice, setReviewInvoice] = useState(false);
   const [items, setItems] = useState([
     {
       id: uid(6),
-      sno:uid(6),
+      sno: uid(6),
       itemDes: itemDes,
       m3cft: m3cft,
       unit: unit,
@@ -125,7 +125,7 @@ export default function InvoiceModal() {
   }, 0);
 
   const vatRate = (vat * subtotal) / 100;
-  const grandTotal = subtotal + pumpCharge + vatRate + prevDue;
+  const grandTotal = subtotal + vatRate + prevDue;
   const payableAmount = grandTotal - rcvAmount;
 
   return (
@@ -140,7 +140,7 @@ export default function InvoiceModal() {
             </span>
           </h1>
           <div className=" md:absolute md:right-[30px] ">
-            <h>Invoice Number: 1</h>
+            <h>Order Number: 1</h>
           </div>
           <div className="flex flex-col gap-1">
             <h1>Due Date: </h1>
@@ -152,7 +152,7 @@ export default function InvoiceModal() {
         <hr className="px-2 py-2 mt-10"></hr>
         <div>
           <h1 className="font-poppinsBold md:text-[25px] sm:text-[22px] text-center">
-            Invoice
+            Work Order
           </h1>
           <div className="md:w-[40%] sm:w-[80%] mt-3">
             <h1>Customer Name: </h1>
@@ -241,10 +241,10 @@ export default function InvoiceModal() {
           <span className="font-bold">Subtotal:</span>
           <span>{subtotal ? subtotal.toLocaleString() : 0}Tk</span>
         </div>
-        <div className="flex w-full justify-between md:w-1/2">
+        {/* <div className="flex w-full justify-between md:w-1/2">
           <span className="font-bold">Pump Charge:</span>
           <span>{pumpCharge ? pumpCharge : 0} Tk</span>
-        </div>
+        </div> */}
 
         <div className="flex w-full justify-between md:w-1/2">
           <span className="font-bold">Vat:</span>
@@ -301,9 +301,13 @@ export default function InvoiceModal() {
             {payableAmount ? payableAmount.toLocaleString() : 0} Tk
           </span>
         </div>
+        <div className="flex w-full justify-between pt-2 md:w-1/2">
+          <p className="self-start text-[15px]">* Pump charge Included</p>
+          <div></div>
+        </div>
       </div>
       <Button className="w-full mt-10" onClick={handleReview}>
-        Review Invoice
+        Review Order
       </Button>
 
       <div>
@@ -315,19 +319,19 @@ export default function InvoiceModal() {
           style={{ width: "50rem" }}
           open={reviewInvoice}
         >
-          <ReviewInvoice 
-          calData={{
-            subtotal,
-            pumpCharge,
-            vatRate,
-            vat,
-            grandTotal,
-            payableAmount,
-            rcvAmount,
-            prevDue
-          }}
-          
-          items={items}></ReviewInvoice>
+          <ReviewInvoice
+            calData={{
+              subtotal,
+              pumpCharge,
+              vatRate,
+              vat,
+              grandTotal,
+              payableAmount,
+              rcvAmount,
+              prevDue,
+            }}
+            items={items}
+          ></ReviewInvoice>
         </Modal>
       </div>
     </div>

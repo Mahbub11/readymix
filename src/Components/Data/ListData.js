@@ -3,7 +3,7 @@ import { Avatar, List, Radio, Space, Tag, Input, Button } from "antd";
 import { Pagination, PaginationProps, Row, Select, Table } from "antd";
 import { StarOutlined, StarFilled } from "@ant-design/icons";
 
-export default function ListData({ list, handleQ,current,page }) {
+export default function ListData({ list, handleQ,current,page,handleWorkOrder }) {
   
  
 
@@ -129,8 +129,9 @@ export default function ListData({ list, handleQ,current,page }) {
       dataIndex: "btn",
       key: "btn",
       render: (level, record) => (
-        <div className="text-[17px] font-montserrat font-[400] ">
+        <div className="text-[17px] font-montserrat font-[400] flex gap-2">
          <Button  onClick={(e) => handleQ(record.index)} >Invoice</Button>
+         <Button  onClick={(e) => handleWorkOrder(record.index)} >Work Order</Button>
         </div>
       ),
     },

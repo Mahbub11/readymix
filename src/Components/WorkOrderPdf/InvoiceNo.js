@@ -27,17 +27,14 @@ const styles = StyleSheet.create({
         <Fragment>
            <View style={styles.invoiceNoContainer}>
            <View style={styles.invoiceDateContainer}>
-                <Text style={styles.label}>Invoice No:</Text>
+                <Text style={styles.label}>Order No:</Text>
                 <Text style={styles.invoiceDate}>{invoice.invoice_no}</Text>
             </View >
             <View style={styles.invoiceDateContainer}>
                 <Text style={styles.label}>Date: </Text>
                 <Text >{invoice.trans_date}</Text>
             </View >
-            <View style={styles.invoiceDateContainer}>
-                <Text style={styles.label}>Due Date: </Text>
-                <Text >{invoice.due_date}</Text>
-            </View >
+           
            </View>
         </Fragment>
   );
